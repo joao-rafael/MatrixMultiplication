@@ -1,3 +1,5 @@
+import time
+
 # cria matriz vazia 
 def createResult(n, m):
   result = []
@@ -12,6 +14,8 @@ def createResult(n, m):
 
 #multiplica matriz
 def multiply(a, b):
+  start = time.time()
+
   result = createResult(len(a), len(b[0]))
 
   #itera sob as linhas de a
@@ -24,6 +28,8 @@ def multiply(a, b):
         
         result[i][j] += a[i][k] * b[k][j]
 
-
-  return result
+  end = time.time()
+  executionTime = end - start
+  
+  return result, executionTime
    

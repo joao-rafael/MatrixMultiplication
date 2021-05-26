@@ -1,19 +1,23 @@
 # importing the required module
 import matplotlib.pyplot as plt
   
-# x axis values
-x = [1,2,3]
-# y axis values
-y = [2,4,1]
+def mount(timeList, R):
+  # naive values
+  naive = timeList
+  # x axis - numero de execucoes
+  x = list(range(1, R+1))
+  # y axis - tempo de execucao
+  y = naive
+    
+  # plotting the points 
+  plt.plot(x, y)
+    
+  # naming the x axis
+  plt.xlabel('Ordem das Matrizes')
+  # naming the y axis
+  plt.ylabel('Tempo de Execução')
+    
+  # graph title
+  plt.title('Gráfico de Execução')
   
-# plotting the points 
-plt.plot(x, y)
-  
-# naming the x axis
-plt.xlabel('x - axis')
-# naming the y axis
-plt.ylabel('y - axis')
-  
-# graph title
-plt.title('Gráfico de Execução')
-  
+
