@@ -1,23 +1,23 @@
-# importing the required module
+# importa matplotlib
 import matplotlib.pyplot as plt
   
 def mount(timeList, R):
-  # naive values
+  # valores da naive multiplication
   naive = timeList
-  # x axis - numero de execucoes
+  # eixo x - ordem das matrizes por hora com numero de execucoes
   x = list(range(1, R+1))
-  # y axis - tempo de execucao
+  # eixo y - tempo de execucao
   y = naive
     
-  # plotting the points 
+  # gera linha
   plt.plot(x, y)
     
-  # naming the x axis
+  # nome do eixo x
   plt.xlabel('Ordem das Matrizes')
-  # naming the y axis
+  # nome do eixo y
   plt.ylabel('Tempo de Execução')
     
-  # graph title
+  # título do gráfico
   plt.title('Gráfico de Execução')
   
 
