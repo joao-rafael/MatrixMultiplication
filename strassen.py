@@ -1,1 +1,4 @@
-print("todo strassen")
+import math
+
+def multiply(a , b):
+  print("Strassend mult")

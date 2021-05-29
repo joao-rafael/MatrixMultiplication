@@ -1,26 +1,14 @@
 import math
 import random
 
-import create 
+import matrix
 import graph
 import naive
 import strassen
 
-# entrada exemplo 
-x = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9]
-]
-
-y = [
-  [5, 6, 2],
-  [3, 2, 1],
-  [1, 0, 1]
-]
-
 print("Multiplicação de Matrizes")
 print("Insira dados:")
+
 # timelist 
 timelistNaive = []
 timelistStrassen = []
@@ -35,8 +23,8 @@ Amax = int(Amax)
 #loop de execução
 i = 0
 while i < R:
-  matrixA = create.matrix(Kmax, Amin, Amax)
-  matrixB = create.matrix(Kmax, Amin, Amax)
+  matrixA = matrix.createRandom(Kmax, Amin, Amax)
+  matrixB = matrix.createRandom(Kmax, Amin, Amax)
   result, timeNaive = naive.multiply(matrixA, matrixB)
   # put strassen here
 
