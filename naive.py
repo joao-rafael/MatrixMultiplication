@@ -1,11 +1,10 @@
-import time
-
-# importação de arquivo
+# multiplicacao naive
+import execution
 import matrix
 
 #multiplica matriz
 def multiply(a, b):
-  start = time.time()
+  start = execution.start()
 
   result = matrix.createEmpty(len(a), len(b[0]))
 
@@ -19,8 +18,8 @@ def multiply(a, b):
         
         result[i][j] += a[i][k] * b[k][j]
 
-  end = time.time()
-  executionTime = end - start
+  end = execution.end()
+  executionTime = execution.getTime(start, end)
   
   return result, executionTime
-   
+  

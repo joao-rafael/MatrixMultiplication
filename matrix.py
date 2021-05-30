@@ -57,7 +57,7 @@ def subtract(m1, m2):
     
 # divide uma matriz em quatro
 def divide(matrix):
-  m1, m2, m3, m4 = matrix
+  m1 = m2 = m3 = m4 = matrix
 
   while len(m1) > len(matrix)/2:
     m1 = m1[:len(m1)//2]

@@ -12,6 +12,7 @@ print("Insira dados:")
 # timelist 
 timelistNaive = []
 timelistStrassen = []
+orderlist = []
 
 # entrada de dados:
 Kmax, R, Amin, Amax = input().split(" ")
@@ -20,21 +21,25 @@ R = int(R)
 Amin = int(Amin)
 Amax = int(Amax)
 
+k = 5
 #loop de execução
 i = 0
 while i < R:
-  matrixA = matrix.createRandom(Kmax, Amin, Amax)
-  matrixB = matrix.createRandom(Kmax, Amin, Amax)
+  if(Kmax > 5 and k < Kmax):
+    k += 1
+  matrixA = matrix.createRandom(k, Amin, Amax)
+  matrixB = matrix.createRandom(k, Amin, Amax)
   result, timeNaive = naive.multiply(matrixA, matrixB)
-  # put strassen here
+  resultStrassen, timeStrassen = strassen.multiply(matrixA, matrixB, k)
+
 
   timelistNaive.append(timeNaive)
-  # append strassen here
-
+  timelistStrassen.append(timeStrassen)
+  orderlist.append(k)
   i += 1
 
 # add strassen to params in future
-graph.mount(timelistNaive, R)
+graph.mount(timelistNaive, timelistStrassen,  R)
 
 # function to show the plot
 graph.plt.show()
