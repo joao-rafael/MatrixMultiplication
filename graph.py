@@ -14,8 +14,8 @@ def mount(timeListNaive, timeListStrassen, R):
   x1 = list(range(1, R+1))
   y1 = strassen
   # gera linha
-  plt.plot(x, y)
-  plt.plot(x1, y1)
+  plt.plot(x, y, label='Naive')
+  plt.plot(x1, y1, label='Strassen')
 
   # nome do eixo x
   plt.xlabel('Ordem das Matrizes')

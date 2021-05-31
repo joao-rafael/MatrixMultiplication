@@ -29,54 +29,49 @@ def createRandom(Kmax, Amin, Amax):
 # soma matrizes
 def sum(m1, m2):
   result = []
-  if(len(m1) == 1):
-    result = [m1[0] + m2[0]]
-    return result
-  else:
-    for i in range (len(m1)):
-      line = []
+  n = len(m1)
 
-      for j in range (len(m1[0])):
-        line.append(m1[i][j] + m2[i][j])
+  for i in range (0, n):
+    line = []
 
-      result.append(line)
+    for j in range (0, n):
+      line.append(m1[i][j] + m2[i][j])
 
-    return result
+    result.append(line)
+
+  return result
 
 # subtrai matrizes
 def subtract(m1, m2):
   result = []
-  if(len(m1) == 1):
-    result = [m1[0] - m2[0]]
-    return result
-  else:
-    for i in range (len(m1)):
-      line = []
+  n = len(m1)
+  
+  for i in range (0, n):
+    line = []
+    for j in range (0, n):
+      line.append(m1[i][j] - m2[i][j])
 
-      for j in range (len(m1[0])):
-        line.append(m1[i][j] - m2[i][j])
+    result.append(line)
 
-      result.append(line)
-    return result
+  return result
 
     
 # divide uma matriz em quatro
 def divide(matrix):
-  """Split matrix into quarters."""
-  a = b = c = d = matrix
+  n = len(matrix)//2
 
-  while len(a) > len(matrix)/2:
-      a = a[:len(a)//2]
-      b = b[:len(b)//2]
-      c = c[len(c)//2:]
-      d = d[len(d)//2:]
+  a = createEmpty(n,n)
+  b = createEmpty(n,n)
+  c = createEmpty(n,n)
+  d = createEmpty(n,n)
 
-  while len(a[0]) > len(matrix[0])//2:
-      for i in range(len(a[0])//2):
-          a[i] = a[i][:len(a[i])//2]
-          b[i] = b[i][len(b[i])//2:]
-          c[i] = c[i][:len(c[i])//2]
-          d[i] = d[i][len(d[i])//2:]
+  for i in range(0, n):
+    for j in range(0, n):
+
+      a[i][j] = matrix[i][j]
+      b[i][j] = matrix[i][j+n]
+      c[i][j] = matrix[i+n][j]
+      d[i][j] = matrix[i+n][j+n]
 
   return a, b, c, d
 
