@@ -30,11 +30,10 @@ while i < R:
   matrixA = matrix.createRandom(k, Amin, Amax)
   matrixB = matrix.createRandom(k, Amin, Amax)
   result, timeNaive = naive.multiply(matrixA, matrixB)
-  resultStrassen, timeStrassen = strassen.multiply(matrixA, matrixB, k)
+  resultStrassen = strassen.multiply(matrixA, matrixB, k)
 
 
   timelistNaive.append(timeNaive)
-  timelistStrassen.append(timeStrassen)
   orderlist.append(k)
   i += 1
 

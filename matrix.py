@@ -29,48 +29,54 @@ def createRandom(Kmax, Amin, Amax):
 # soma matrizes
 def sum(m1, m2):
   result = []
+  if(len(m1) == 1):
+    result = [m1[0] + m2[0]]
+    return result
+  else:
+    for i in range (len(m1)):
+      line = []
 
-  for i in range (len(m1)):
-    line = []
+      for j in range (len(m1[0])):
+        line.append(m1[i][j] + m2[i][j])
 
-    for j in range (len(m1[0])):
-      line.append(m1[i][j] + m2[i][j])
+      result.append(line)
 
-    result.append(line)
-
-  return result
+    return result
 
 # subtrai matrizes
 def subtract(m1, m2):
   result = []
+  if(len(m1) == 1):
+    result = [m1[0] - m2[0]]
+    return result
+  else:
+    for i in range (len(m1)):
+      line = []
 
-  for i in range (len(m1)):
-    line = []
+      for j in range (len(m1[0])):
+        line.append(m1[i][j] - m2[i][j])
 
-    for j in range (len(m1[0])):
-      line.append(m1[i][j] - m2[i][j])
-
-    result.append(line)
-  
-  return result
+      result.append(line)
+    return result
 
     
 # divide uma matriz em quatro
 def divide(matrix):
-  m1 = m2 = m3 = m4 = matrix
+  """Split matrix into quarters."""
+  a = b = c = d = matrix
 
-  while len(m1) > len(matrix)/2:
-    m1 = m1[:len(m1)//2]
-    m2 = m2[:len(m2)//2]
-    m3 = m3[len(m3)//2:]
-    m4 = m4[len(m4)//2:]
+  while len(a) > len(matrix)/2:
+      a = a[:len(a)//2]
+      b = b[:len(b)//2]
+      c = c[len(c)//2:]
+      d = d[len(d)//2:]
 
-  while len(m1[0]) > len(matrix[0])//2:
-    for i in range(len(m1[0])//2):
-      m1[i] = m1[i][:len(m1[i])//2]
-      m2[i] = m2[i][len(m2[i])//2:]
-      m3[i] = m3[i][:len(m3[i])//2]
-      m4[i] = m4[i][len(m4[i])//2:]
+  while len(a[0]) > len(matrix[0])//2:
+      for i in range(len(a[0])//2):
+          a[i] = a[i][:len(a[i])//2]
+          b[i] = b[i][len(b[i])//2:]
+          c[i] = c[i][:len(c[i])//2]
+          d[i] = d[i][len(d[i])//2:]
 
-  return m1, m2, m3, m4
+  return a, b, c, d
 
