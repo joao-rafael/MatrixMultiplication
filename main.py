@@ -1,5 +1,8 @@
+import fileinput
 import math
 import random
+
+from numpy import append
 
 import matrix
 import execution
@@ -8,15 +11,25 @@ import naive
 import strassen
 
 print("Multiplicação de Matrizes")
-print("Insira dados:")
+print("Desenvolvido por João Rafael")
+print("O arquivo de entrada deve se chamar 'in.txt'")
 
 # timelist 
 timelistNaive = []
 timelistStrassen = []
 orderlist = []
 
-# entrada de dados:
-Kmax, R, Amin, Amax = input().split(" ")
+# entrada de dados por arquivo
+indata = []
+for line in fileinput.input(files='in.txt'):
+  indata.append(line.rstrip('\n'))
+
+interval = indata[2].split(' ')
+del indata[-1]
+Amin, Amax = interval
+Kmax, R = indata
+
+# casting
 Kmax = int(Kmax)
 R = int(R)
 Amin = int(Amin)
@@ -28,10 +41,11 @@ k = 5
 # loop de execução
 i = 0
 while i < R:
-  if(Kmax > 5 and k < Kmax):
-    k += 1
-  matrixA = matrix.createRandom(k, Amin, Amax)
-  matrixB = matrix.createRandom(k, Amin, Amax)
+  
+  # criação de matrizes
+  power = 2 ** k;
+  matrixA = matrix.createRandom(power, Amin, Amax)
+  matrixB = matrix.createRandom(power, Amin, Amax)
   result, timeNaive = naive.multiply(matrixA, matrixB)
 
   # Strassen é recursivo, preciso contar o tempo fora da função
@@ -41,14 +55,15 @@ while i < R:
   stend = execution.end()
   timeStrassen = execution.getTime(st, stend) 
 
-
+  # dados para o gráfico
   timelistNaive.append(timeNaive)
   timelistStrassen.append(timeStrassen)
   orderlist.append(k)
+
+  if(Kmax > 5 and k < Kmax):
+    k += 1
   i += 1
 
 # add strassen to params in future
-graph.mount(timelistNaive, timelistStrassen,  R)
-
-# function to show the plot
-graph.plt.show()
+graph.mount(timelistNaive, timelistStrassen,  orderlist)
+print("Pressionar 'ctrl-C' para terminar execução.")

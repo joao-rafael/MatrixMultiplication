@@ -1,14 +1,12 @@
 import matrix
+import naive
 
 def multiply(m1, m2, k):
-  print(m1)
-  print(m2)
 
   k = int(k)
 
-  if k == 2:
-    result = [[0]]
-    result[0][0] = m1[0][0] * m2[0][0]
+  if k == 32 or k < 32:
+    result = naive.multiply(m1, m2)
     return result
   else:
     ## divisao de matrizes - sm para sub matriz
