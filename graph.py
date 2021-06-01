@@ -28,4 +28,6 @@ def mount(timeListNaive, timeListStrassen, R):
   # título do gráfico
   plt.title('Gráfico de Execução')
 
+  print("Pressionar 'ctrl-C' para terminar execução.")
+
   plt.show()

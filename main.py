@@ -1,8 +1,4 @@
 import fileinput
-import math
-import random
-
-from numpy import append
 
 import matrix
 import execution
@@ -64,6 +60,6 @@ while i < R:
     k += 1
   i += 1
 
-# add strassen to params in future
+# grafico
 graph.mount(timelistNaive, timelistStrassen,  orderlist)
-print("Pressionar 'ctrl-C' para terminar execução.")
+
