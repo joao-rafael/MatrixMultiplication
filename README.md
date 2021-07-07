@@ -5,7 +5,7 @@ Data Structures assignment.
 Implementation of two matrix multiplication methods: Naive and Strassen Algortihm.
 
 ### Execute it:
-This code can be executated via [repl.it](https://replit.com/@jaumr/MatrixMulPy#main.py)
+clone and run `python main.py`
 
 ### Input format
 ```
